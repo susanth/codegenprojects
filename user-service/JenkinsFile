@@ -1,0 +1,41 @@
+
+pipeline {
+    agent any
+    environment {
+        BRANCHNAME = "stage-name-alphanumeric"
+        DEPLOYENV = "stage-name"
+        VERSION = "curl-script-command"
+    }
+    stages {
+        stage('PROD') {
+            when {
+                expression {
+                    BRANCHNAME.endsWith("PROD")
+                }
+            }
+            steps {
+                // Deployment steps
+            }
+        }
+        stage('BUGFIX') {
+            when {
+                expression {
+                    BRANCHNAME.endsWith("BUGFIX")
+                }
+            }
+            steps {
+                // Deployment steps
+            }
+        }
+        stage('CUSTOMER') {
+            when {
+                expression {
+                    BRANCHNAME.endsWith("CUSTOMER")
+                }
+            }
+            steps {
+                // Deployment steps
+            }
+        }
+    }
+}
