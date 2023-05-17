@@ -1,4 +1,4 @@
-package com.hcl.rest.service;
+package com.hcl.rest.service;import com.hcl.rest.domain.UserDto;import java.security.Provider.Service;
 @Service
 public class KafkaProducer {
     @Autowired
