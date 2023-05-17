@@ -15,11 +15,11 @@ spec:
     spec:
       containers:
       - name: user-service
-        image: user-service:latest
+        image: user-service:1.0.0
         ports:
         - containerPort: 8080
         env:
-        - name: KAFKA_BOOTSTRAP_SERVERS
-          value: localhost:9092
-        - name: KAFKA_CONSUMER_GROUP_ID
-          value: user-service
+        - name: DEPLOYENV
+          value: PROD
+        - name: VERSION
+          value: 1.0.0

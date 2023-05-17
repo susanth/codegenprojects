@@ -1,4 +1,4 @@
-package com.hcl.rest.com.hcl.rest.service.impl;
+package com.hcl.rest.service.impl;
 @Component
 public class KafkaProducer {
     @Autowired
