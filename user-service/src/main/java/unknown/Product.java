@@ -4,5 +4,5 @@ public class Product {
     private int unitPrice;
     private int maxPurchase;
     
-    // Getters and Setters
+    // getters and setters
 }
