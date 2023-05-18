@@ -19,11 +19,9 @@ spec:
         ports:
         - containerPort: 8080
         env:
-        - name: KAFKA_BOOTSTRAP_SERVERS
-          value: localhost:9092
-        - name: KAFKA_CONSUMER_GROUP_ID
-          value: userupdate-consumer
-        - name: KAFKA_PRODUCER_KEY_SERIALIZER
-          value: org.apache.kafka.common.serialization.StringSerializer
-        - name: KAFKA_PRODUCER_VALUE_SERIALIZER
-          value: org.apache.kafka.common.serialization.StringSerializer
+        - name: BRANCHNAME
+          value: "PROD"
+        - name: DEPLOYENV
+          value: "PROD"
+        - name: VERSION
+          value: "1.0"
