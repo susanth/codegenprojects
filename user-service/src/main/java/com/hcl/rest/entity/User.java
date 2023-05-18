@@ -1,4 +1,5 @@
-package com.hcl.rest.entity;import org.w3c.dom.Entity;
+package com.hcl.rest.entity;
+import org.w3c.dom.Entity;
 @Entity
 @Table(name = "user")
 public class User {
