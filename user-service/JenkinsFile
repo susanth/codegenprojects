@@ -2,39 +2,39 @@
 pipeline {
     agent any
     environment {
-        BRANCHNAME = "PROD_12345"
-        DEPLOYENV = "PROD"
-        VERSION = "1.0.0"
+        BRANCHNAME = "stage-name-alphanumeric"
+        DEPLOYENV = "stage-name"
+        VERSION = "curl-script-command"
     }
     stages {
         stage('PROD') {
             when {
                 expression {
-                    return BRANCHNAME.endsWith("12345") && BRANCHNAME.startsWith("PROD")
+                    BRANCHNAME.endsWith("PROD")
                 }
             }
             steps {
-                sh 'curl -X POST http://localhost:8080/updateUserStatus -d version=${VERSION} -d deployenv=${DEPLOYENV}'
+                // Deployment steps
             }
         }
         stage('BUGFIX') {
             when {
                 expression {
-                    return BRANCHNAME.endsWith("67890") && BRANCHNAME.startsWith("BUGFIX")
+                    BRANCHNAME.endsWith("BUGFIX")
                 }
             }
             steps {
-                sh 'curl -X POST http://localhost:8080/updateUserStatus -d version=${VERSION} -d deployenv=${DEPLOYENV}'
+                // Deployment steps
             }
         }
         stage('CUSTOMER') {
             when {
                 expression {
-                    return BRANCHNAME.endsWith("09876") && BRANCHNAME.startsWith("CUSTOMER")
+                    BRANCHNAME.endsWith("CUSTOMER")
                 }
             }
             steps {
-                sh 'curl -X POST http://localhost:8080/updateUserStatus -d version=${VERSION} -d deployenv=${DEPLOYENV}'
+                // Deployment steps
             }
         }
     }

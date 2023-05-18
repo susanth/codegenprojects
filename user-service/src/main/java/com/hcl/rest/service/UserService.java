@@ -1,4 +1,7 @@
-package com.hcl.rest.service;import com.hcl.rest.domain.UserDto;import com.hcl.rest.entity.User;import com.hcl.rest.repository.UserRepository;import java.security.Provider.Service;
+package com.hcl.rest.service;import com.hcl.rest.domain.UserDto;
+import com.hcl.rest.entity.User;
+import com.hcl.rest.repository.UserRepository;
+import java.security.Provider.Service;
 @Service
 public class UserService {
     @Autowired
