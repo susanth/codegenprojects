@@ -2,24 +2,28 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: user-service
+  name: user-update
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: user-service
+      app: user-update
   template:
     metadata:
       labels:
-        app: user-service
+        app: user-update
     spec:
       containers:
-      - name: user-service
-        image: user-service:latest
+      - name: user-update
+        image: user-update:latest
         ports:
         - containerPort: 8080
         env:
         - name: KAFKA_BOOTSTRAP_SERVERS
           value: localhost:9092
         - name: KAFKA_CONSUMER_GROUP_ID
-          value: user-service
+          value: userupdate-consumer
+        - name: KAFKA_PRODUCER_KEY_SERIALIZER
+          value: org.apache.kafka.common.serialization.StringSerializer
+        - name: KAFKA_PRODUCER_VALUE_SERIALIZER
+          value: org.apache.kafka.common.serialization.StringSerializer

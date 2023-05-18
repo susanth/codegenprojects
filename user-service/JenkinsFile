@@ -2,9 +2,9 @@
 pipeline {
     agent any
     environment {
-        BRANCHNAME = "stage-name-alphanumeric"
-        DEPLOYENV = "stage-name"
-        VERSION = "curl-script-command"
+        BRANCHNAME = "${env.BRANCHNAME}"
+        DEPLOYENV = "${env.DEPLOYENV}"
+        VERSION = "${env.VERSION}"
     }
     stages {
         stage('PROD') {
@@ -14,7 +14,8 @@ pipeline {
                 }
             }
             steps {
-                // Deployment steps
+                echo "Deploying to PROD environment"
+                sh "curl -X POST -H 'Content-Type: application/json' -d '{\"version\": \"${VERSION}\"}' http://localhost:8080/deploy"
             }
         }
         stage('BUGFIX') {
@@ -24,7 +25,8 @@ pipeline {
                 }
             }
             steps {
-                // Deployment steps
+                echo "Deploying to BUGFIX environment"
+                sh "curl -X POST -H 'Content-Type: application/json' -d '{\"version\": \"${VERSION}\"}' http://localhost:8080/deploy"
             }
         }
         stage('CUSTOMER') {
@@ -34,7 +36,8 @@ pipeline {
                 }
             }
             steps {
-                // Deployment steps
+                echo "Deploying to CUSTOMER environment"
+                sh "curl -X POST -H 'Content-Type: application/json' -d '{\"version\": \"${VERSION}\"}' http://localhost:8080/deploy"
             }
         }
     }
